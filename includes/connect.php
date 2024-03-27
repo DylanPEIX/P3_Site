@@ -1,7 +1,7 @@
 <?php
     function connect() {
         // Vérifier si des données POST ont été envoyées
-        $servername="localhost";
+        $servername="db";
         $username="root";
         $password="root";
         $dbname="playerbase";
