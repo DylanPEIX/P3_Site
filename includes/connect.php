@@ -1,10 +1,10 @@
 <?php
     function connect() {
         // Vérifier si des données POST ont été envoyées
-        $servername="db";
+        $servername="localhost";
         $username="root";
         $password="root";
-        $dbname="login";
+        $dbname="playerbase";
         
         try {
             // Connexion à la base de données
