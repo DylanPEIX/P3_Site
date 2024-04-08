@@ -17,8 +17,8 @@ $query->execute();
 $result = $query->fetch();
 $allplayers = (int) $result['players'];
 
-// On détermine le nombre d'articles par page
-$parPage = 10;
+// On détermine le nombre de joueurs par page
+$parPage = 18;
 
 // On calcule le nombre de pages total
 $pages = ceil($allplayers / $parPage);
@@ -36,57 +36,117 @@ $players = $query->fetchAll(PDO::FETCH_ASSOC);
 include('includes/close.php');
 ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des joueurs</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>My playerbase</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <main class="container">
-        <div class="col">
-            <section class="col-12">
-                <h1>Liste des joueurs</h1>
-                <?php if(empty($players)): ?>
-                    <p>Aucun joueur trouvé.</p>
-                <?php else: ?>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Pseudo</th>
-                                <th>Jeux</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach($players as $player): ?>
-                                <tr>
-                                    <td><?= $player['id'] ?></td>
-                                    <td><?= $player['pseudo'] ?></td>
-                                    <td><?= $player['game'] ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                <?php endif; ?>
-                <nav>
-                    <ul class="pagination">
-                        <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                            <a href="?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
-                        </li>
-                        <?php for($page = 1; $page <= $pages; $page++): ?>
-                            <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                                <a href="?page=<?= $page ?>" class="page-link"><?= $page ?></a>
-                            </li>
-                        <?php endfor ?>
-                        <li class="page-item <?= ($currentPage == $pages || $pages == 0) ? "disabled" : "" ?>">
-                            <a href="?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
-                        </li>
-                    </ul>
-                </nav>
-            </section>
+
+    <div class="container text-center">
+        <h1 class="my-5">Playerbase</h1>
+        <div class="row row-cols-5">
+            <?php foreach ($players as $player): 
+                $id = $player['id'];
+                ?>
+            <div class="col-md-2 mb-4">
+                <div class="card">
+                    <img src="tenz.png" class="card-img-top" alt="Player Image">
+                    <div class="card-body">
+                        <h5 class="card-title mb-0"><?php echo $player['pseudo']; ?></h5>
+                        <p class="card-text mb-0">Game: <?php echo $player['game']; ?></p>
+                        <p class="card-text mb-1">Team: <?php echo $player['team']; ?></p>
+                        <div class="d-grid gap-2 justify-content-md-end">
+                            <button class="btn btn-primary" type="button" onclick="openModal(<?php echo $id;?>)" >See more</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
         </div>
-    </main>
+    </div>
+
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+
+                <!-- Page précédente -->
+                <?php if ($currentPage > 1): ?>
+                <li class="page-item">
+                    <a class="page-link" href="?page=<?php echo $currentPage - 1; ?>">&lsaquo;</a>
+                </li>
+                <?php endif; ?>
+
+                <!-- Première page -->
+                <?php if ($currentPage > 2): ?>
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">1</a>
+                </li>
+                <?php elseif ($currentPage == 2): ?>
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">1</a>
+                </li>
+                <?php endif; ?>
+
+                <!-- Page précédente -->
+                <?php if ($currentPage > 2): ?>
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">...</a>
+                </li>
+                <?php endif; ?>
+
+                <!-- Page actuelle -->
+                <li class="page-item active">
+                    <a class="page-link" href="#"><?php echo $currentPage; ?></a>
+                </li>
+
+                <!-- Page suivante -->
+                <?php if ($currentPage < $pages - 1): ?>
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">...</a>
+                </li>
+                <?php endif; ?>
+
+                <!-- Dernière page -->
+                <?php if ($currentPage < $pages): ?>
+                <li class="page-item">
+                    <a class="page-link" href="?page=<?php echo $pages; ?>"><?php echo $pages; ?></a>
+                </li>
+                <?php endif; ?>
+
+                <!-- Page suivante -->
+                <?php if ($currentPage < $pages): ?>
+                <li class="page-item">
+                    <a class="page-link" href="?page=<?php echo $currentPage + 1; ?>">&rsaquo;</a>
+                </li>
+                <?php endif; ?>
+                
+            </ul>
+        </nav>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <iframe id="iframeDetail" src=""></iframe> <!-- Contenu à afficher dans la boîte modale -->
+        </div>
+    </div>
+
+        <script>
+            // Fonction pour ouvrir la boîte modale avec l'ID du block
+            function openModal(id) {
+                document.getElementById("myModal").style.display = "block";
+                document.getElementById("iframeDetail").src = "detail.php?id=" + id;
+            }
+
+            // Fonction pour fermer la boîte modale
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+        </script>
 </body>
 </html>
+

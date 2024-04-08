@@ -1,0 +1,9 @@
+body {
+    background-color:whitesmoke;
+}
+
+.modal-content{
+    display: flex !important;
+    width: 1000px !important;
+    height: 1000px !important;
+}
