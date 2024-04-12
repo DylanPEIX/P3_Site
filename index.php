@@ -26,6 +26,8 @@ $pages = ceil($allplayers / $parPage);
 // Calcul du 1er joueur de la page
 $premier = ($currentPage * $parPage) - $parPage;
 
+// Requête SQL pour récupérer les joueurs de la page actuelle
+// On utilise un curseur préparé pour éviter les injections SQL
 $sql = 'SELECT * FROM `player` ORDER BY `id` LIMIT :premier, :parpage;';
 $query = $conn->prepare($sql);
 $query->bindValue(':premier', $premier, PDO::PARAM_INT);
@@ -33,6 +35,7 @@ $query->bindValue(':parpage', $parPage, PDO::PARAM_INT);
 $query->execute();
 $players = $query->fetchAll(PDO::FETCH_ASSOC);
 
+// On ferme la connexion à la base de données
 include('includes/close.php');
 ?>
 <!DOCTYPE html>
