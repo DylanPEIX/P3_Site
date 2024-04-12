@@ -56,7 +56,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-auto">
                 <div class="player-description">
                     <p class="text-center"><?php echo $player['text']; ?></p>
