@@ -49,6 +49,7 @@ include('includes/close.php');
 </head>
 <body>
 
+    <!-- Barre de navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">Playerbase</a>
