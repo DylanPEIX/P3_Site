@@ -51,7 +51,7 @@ include('includes/close.php');
         <div class="row row-cols-5">
             <?php foreach ($players as $player): 
                 $id = $player['id'];
-                ?>
+            ?>
             <div class="col-md-2 mb-4">
                 <div class="card">
                     <img src="tenz.png" class="card-img-top" alt="Player Image">
@@ -59,16 +59,14 @@ include('includes/close.php');
                         <h5 class="card-title mb-0"><?php echo $player['pseudo']; ?></h5>
                         <p class="card-text mb-0">Game: <?php echo $player['game']; ?></p>
                         <p class="card-text mb-1">Team: <?php echo $player['team']; ?></p>
-                        <div class="d-grid gap-2 justify-content-md-end">
-                            <button class="btn btn-primary" type="button" onclick="openModal(<?php echo $id;?>)" >See more</button>
-                        </div>
+                        <!-- Bouton redirigeant vers la page de détails -->
+                        <a href="detail.php?id=<?php echo $id; ?>" class="btn btn-primary">See more</a>
                     </div>
                 </div>
             </div>
             <?php endforeach; ?>
         </div>
     </div>
-
 
         <!-- Pagination -->
         <nav aria-label="Page navigation example">
@@ -127,26 +125,6 @@ include('includes/close.php');
                 
             </ul>
         </nav>
-    </div>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <iframe id="iframeDetail" src=""></iframe> <!-- Contenu à afficher dans la boîte modale -->
-        </div>
-    </div>
-
-        <script>
-            // Fonction pour ouvrir la boîte modale avec l'ID du block
-            function openModal(id) {
-                document.getElementById("myModal").style.display = "block";
-                document.getElementById("iframeDetail").src = "detail.php?id=" + id;
-            }
-
-            // Fonction pour fermer la boîte modale
-            function closeModal() {
-                document.getElementById("myModal").style.display = "none";
-            }
-        </script>
 </body>
 </html>
 
