@@ -1,1 +1,3 @@
-#fais moi une fonction de calcul en addition
+#Fonction pour additionner a et b
+def add(a, b):
+  return a + b
