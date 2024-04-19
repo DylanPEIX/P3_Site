@@ -34,7 +34,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" href="CRUD/style.css">
+    <link rel="stylesheet" href="assets/crud.css">
 </head>
 <body>
     <div class="login-container">

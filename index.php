@@ -45,10 +45,10 @@ include('includes/close.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My playerbase</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/style.css" />
     <style>
         body {
-            background-image: url('bg.png');
+            background-image: url('assets/bg/bg.png');
         }
     </style>
 </head>

@@ -57,7 +57,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Create a new player</title>
-    <link rel="stylesheet" href="CRUD/style.css">
+    <link rel="stylesheet" href="assets/crud.css">
 </head>
 <body>
     <div class="login-container">

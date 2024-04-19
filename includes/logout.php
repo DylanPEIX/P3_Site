@@ -9,6 +9,6 @@
     session_destroy();
 
     // Rediriger l'utilisateur vers la page de connexion
-    header("location: login.php");
+    header("location: http://localhost/P3_Site/login.php");
     exit();
 ?>
