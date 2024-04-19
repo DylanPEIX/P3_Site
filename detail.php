@@ -28,8 +28,31 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <title>Player details</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('bg-detail.jpg');
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">Playerbase</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="welcome.php">Log as admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <h1 class="my-5">Player Details</h1>
         <?php if ($player): ?>
@@ -38,7 +61,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 <div class="player-details">
                     <div class="row">
                         <div class="col-md-auto d-flex align-items-center justify-content-center">
-                            <img src="tenz.png" class="img-fluid player-image rounded-circle" alt="Player Image">
+                            <img src='assets/img/img_<?php echo $id; ?>.png' class="img-fluid player-image rounded-circle" alt="Player Image">
                         </div>
                         <div class="col-md-auto m-auto">
                             <h2 class="text-center"><?php echo $player['pseudo']; ?></h2>

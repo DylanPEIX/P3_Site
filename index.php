@@ -46,13 +46,18 @@ include('includes/close.php');
     <title>My playerbase</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            background-image: url('bg.png');
+        }
+    </style>
 </head>
 <body>
 
     <!-- Barre de navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Playerbase</a>
+            <a class="navbar-brand" href="index.php">Playerbase</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -73,8 +78,8 @@ include('includes/close.php');
                 $id = $player['id'];
             ?>
             <div class="col-md-2 mb-4">
-                <div class="card">
-                    <img src="tenz.png" class="card-img-top" alt="Player Image">
+                <div class="card" style="width: 10rem;">
+                    <img src='assets/img/img_<?php echo $id; ?>.png' class="card-img-top rounded-circle" alt="Player Image">
                     <div class="card-body">
                         <h5 class="card-title mb-0"><?php echo $player['pseudo']; ?></h5>
                         <p class="card-text mb-0">Game: <?php echo $player['game']; ?></p>

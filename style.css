@@ -1,6 +1,9 @@
-body {
-    background-color:pink;
-}
+body{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 
 .player-image {
     max-width: 100%;
@@ -30,4 +33,8 @@ body {
 
 .player-description p{
     margin-bottom: 0px;
+}
+
+h1 {
+    color: white;
 }
