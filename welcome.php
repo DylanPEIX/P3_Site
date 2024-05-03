@@ -51,8 +51,8 @@
             <?php foreach($result1 as $row): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($row['pseudo']); ?></td>
-                    <td><a href="update.php?id=<?php echo $row['id']; ?>"><img class="modif" src="assets/modif.png" style="width:20px;height:20px"></a></td>
-                    <td><a href="delete.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')"><img class="supp" src="assets/supprimer.png" style="width:25px;height:25px"><i class="fas fa-trash-alt"></i></a></td>
+                    <td><a href="update.php?id=<?php echo $row['id']; ?>"><img class="modif" src="assets/img/modif.png" style="width:20px;height:20px"></a></td>
+                    <td><a href="delete.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')"><img class="supp" src="assets/img/supprimer.png" style="width:25px;height:25px"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

@@ -1,42 +1,42 @@
 <?php
-// On détermine sur quelle page on se trouve
-if(isset($_GET['page']) && !empty($_GET['page'])){
-    $currentPage = (int) $_GET['page'];
-} else {
-    $currentPage = 1;
-}
+    // On détermine sur quelle page on se trouve
+    if(isset($_GET['page']) && !empty($_GET['page'])){
+        $currentPage = (int) $_GET['page'];
+    } else {
+        $currentPage = 1;
+    }
 
-// On se connecte à la base de données
-include('includes/connect.php');
-$conn = connect();
+    // On se connecte à la base de données
+    include('includes/connect.php');
+    $conn = connect();
 
-// On détermine le nombre total de joueurs
-$sql = 'SELECT COUNT(*) AS players FROM `player`;';
-$query = $conn->prepare($sql);
-$query->execute();
-$result = $query->fetch();
-$allplayers = (int) $result['players'];
+    // On détermine le nombre total de joueurs
+    $sql = 'SELECT COUNT(*) AS players FROM `player`;';
+    $query = $conn->prepare($sql);
+    $query->execute();
+    $result = $query->fetch();
+    $allplayers = (int) $result['players'];
 
-// On détermine le nombre de joueurs par page
-$parPage = 18;
+    // On détermine le nombre de joueurs par page
+    $parPage = 8;
 
-// On calcule le nombre de pages total
-$pages = ceil($allplayers / $parPage);
+    // On calcule le nombre de pages total
+    $pages = ceil($allplayers / $parPage);
 
-// Calcul du 1er joueur de la page
-$premier = ($currentPage * $parPage) - $parPage;
+    // Calcul du 1er joueur de la page
+    $premier = ($currentPage * $parPage) - $parPage;
 
-// Requête SQL pour récupérer les joueurs de la page actuelle
-// On utilise un curseur préparé pour éviter les injections SQL
-$sql = 'SELECT * FROM `player` ORDER BY `id` LIMIT :premier, :parpage;';
-$query = $conn->prepare($sql);
-$query->bindValue(':premier', $premier, PDO::PARAM_INT);
-$query->bindValue(':parpage', $parPage, PDO::PARAM_INT);
-$query->execute();
-$players = $query->fetchAll(PDO::FETCH_ASSOC);
+    // Requête SQL pour récupérer les joueurs de la page actuelle
+    // On utilise un curseur préparé pour éviter les injections SQL
+    $sql = 'SELECT * FROM `player` ORDER BY `id` LIMIT :premier, :parpage;';
+    $query = $conn->prepare($sql);
+    $query->bindValue(':premier', $premier, PDO::PARAM_INT);
+    $query->bindValue(':parpage', $parPage, PDO::PARAM_INT);
+    $query->execute();
+    $players = $query->fetchAll(PDO::FETCH_ASSOC);
 
-// On ferme la connexion à la base de données
-include('includes/close.php');
+    // On ferme la connexion à la base de données
+    include('includes/close.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,14 +72,14 @@ include('includes/close.php');
     </nav>
 
     <div class="container text-center">
-        <h1 class="my-5">Playerbase</h1>
+        <h1 class="my-3">Playerbase</h1>
         <div class="row row-cols-5">
             <?php foreach ($players as $player): 
                 $id = $player['id'];
             ?>
-            <div class="col-md-2 mb-4">
-                <div class="card" style="width: 10rem;">
-                    <img src='assets/img/img_<?php echo $id; ?>.png' class="card-img-top rounded-circle" alt="Player Image">
+            <div class="col-md-3 mb-4">
+                <div class="card" style="width: 13rem;">
+                    <img src='assets/img/img_<?php echo $id; ?>.png' class="card-img-top rounded-circle" width="150" height="150" alt="Player Image">
                     <div class="card-body">
                         <h5 class="card-title mb-0"><?php echo $player['pseudo']; ?></h5>
                         <p class="card-text mb-0">Game: <?php echo $player['game']; ?></p>

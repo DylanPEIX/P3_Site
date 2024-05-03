@@ -61,7 +61,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 <div class="player-details">
                     <div class="row">
                         <div class="col-md-auto d-flex align-items-center justify-content-center">
-                            <img src='assets/img/img_<?php echo $id; ?>.png' class="img-fluid player-image rounded-circle" alt="Player Image">
+                            <img src='assets/img/img_<?php echo $id; ?>.png' class="img-fluid player-image rounded-circle" width="200" height="200" alt="Player Image">
                         </div>
                         <div class="col-md-auto m-auto">
                             <h2 class="text-center"><?php echo $player['pseudo']; ?></h2>

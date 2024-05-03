@@ -11,7 +11,7 @@
 
         $requete = $conn->prepare("INSERT INTO player (firstname, pseudo, lastname, dob, country, game, team, text) VALUES (:firstname, :pseudo, :lastname, :dob, :country, :game, :team, :text);");
 
-        // Retrieve form data
+        // Récupérer les données du formulaire
         $firstname = $_POST['firstname'];
         $pseudo = $_POST['pseudo'];
         $lastname = $_POST['lastname'];
@@ -33,24 +33,25 @@
         $result = $requete->execute();
 
         if ($result) {
-            // If the insertion is successful, handle file upload
+            // Si l'insertion réussit, gérer le téléchargement de fichier
             if (isset($_FILES['file'])) {
                 $tmpName = $_FILES['file']['tmp_name'];
                 $name = $_FILES['file']['name'];
                 $size = $_FILES['file']['size'];
                 $error = $_FILES['file']['error'];
 
-                // Move the uploaded file to the desired location with the new filename
-                $lastInsertId = $conn->lastInsertId(); // Retrieve the last inserted ID
+                // Déplacer le fichier téléchargé vers l'emplacement désiré avec le nouveau nom de fichier
+                $lastInsertId = $conn->lastInsertId(); // Récupérer le dernier ID inséré
                 $newFileName = 'img_' . $lastInsertId . '.png';
                 move_uploaded_file($tmpName, 'assets/img/' . $newFileName);
             }
-            echo "Data has been inserted successfully.";
+            echo "<p style='color: green;'>Les données ont été insérées avec succès.</p>";
         } else {
-            echo "Error during data insertion.";
+            echo "<p style='color: red;'>Erreur lors de l'insertion des données.</p>";
         }
     }
 ?>
+
 
 <!DOCTYPE html>
 <html>

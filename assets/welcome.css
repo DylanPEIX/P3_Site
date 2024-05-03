@@ -1,5 +1,5 @@
 body {
-    background-image: url('assets/bg/bg-welcome.jpg');
+    background-image: url('bg/bg-welcome.jpg');
     background-repeat:no-repeat; 
     background-position:center; 
     background-size:cover; 
@@ -113,8 +113,9 @@ body, h1, h2, h3, h4, h5, h6, p, table {
     border-radius: 80px;
     text-decoration: none;
     transition: background-color 0.3s;
-    margin-left: 1070px;
+    margin: auto; /* Ajout de cette ligne */
 }
+
 
 .create-button:hover {
     background-color: #3aac0d;
