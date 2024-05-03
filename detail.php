@@ -1,6 +1,6 @@
 <?php
 // On se connecte à la base de données
-include('includes/connect.php');
+include ('includes/connect.php');
 $conn = connect();
 
 $player = false; // Aucun joueur trouvé
@@ -22,6 +22,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,13 +35,15 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         }
     </style>
 </head>
+
 <body>
 
     <!-- Barre de navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="index.php">Playerbase</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -56,41 +59,45 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <div class="container">
         <h1 class="my-5">Player Details</h1>
         <?php if ($player): ?>
-        <div class="row justify-content-center">
-            <div class="col-md-auto">
-                <div class="player-details">
-                    <div class="row">
-                        <div class="col-md-auto d-flex align-items-center justify-content-center">
-                            <img src='assets/img/img_<?php echo $id; ?>.png' class="img-fluid player-image rounded-circle" width="200" height="200" alt="Player Image">
-                        </div>
-                        <div class="col-md-auto m-auto">
-                            <h2 class="text-center"><?php echo $player['pseudo']; ?></h2>
-                            <p class="text-center">Name: <?php echo $player['firstname'] . ' ' . $player['lastname']; ?></p>
-                            <div class="row">
-                                <div class="col-md-auto text-center">Birthday: <?php echo $player['dob']; ?></div>
-                                <div class="col-md-auto text-center">Country: <?php echo $player['country']; ?></div>
+            <div class="row justify-content-center">
+                <div class="col-md-auto">
+                    <div class="player-details">
+                        <div class="row">
+                            <div class="col-md-auto d-flex align-items-center justify-content-center">
+                                <img src='assets/img/img_<?php echo $id; ?>.png'
+                                    class="img-fluid player-image rounded-circle" width="200" height="200"
+                                    alt="Player Image">
                             </div>
-                            <div class="row">
-                                <div class="col-md-6 text-center">Game: <?php echo $player['game']; ?></div>
-                                <div class="col-md-6 text-center">Team: <?php echo $player['team']; ?></div>
+                            <div class="col-md-auto m-auto">
+                                <h2 class="text-center"><?php echo $player['pseudo']; ?></h2>
+                                <p class="text-center">Name: <?php echo $player['firstname'] . ' ' . $player['lastname']; ?>
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-auto text-center">Birthday: <?php echo $player['dob']; ?></div>
+                                    <div class="col-md-auto text-center">Country: <?php echo $player['country']; ?></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 text-center">Game: <?php echo $player['game']; ?></div>
+                                    <div class="col-md-6 text-center">Team: <?php echo $player['team']; ?></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-auto">
-                <div class="player-description">
-                    <p class="text-center"><?php echo $player['text']; ?></p>
+            <div class="row justify-content-center">
+                <div class="col-md-auto">
+                    <div class="player-description">
+                        <p class="text-center"><?php echo $player['text']; ?></p>
+                    </div>
                 </div>
             </div>
-        </div>
         <?php else: ?>
-        <div class="alert alert-danger" role="alert">
-            Joueur non trouvé.
-        </div>
+            <div class="alert alert-danger" role="alert">
+                Joueur non trouvé.
+            </div>
         <?php endif; ?>
     </div>
 </body>
+
 </html>

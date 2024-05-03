@@ -1,83 +1,90 @@
 body {
-    background-image: url('bg/bg-welcome.jpg');
-    background-repeat:no-repeat; 
-    background-position:center; 
-    background-size:cover; 
-    background-attachment: fixed;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+  background-image: url("bg/bg-welcome.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 .container {
-    max-width: 800px;
-    margin: 100px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .container button {
-    display: flex;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    margin-left: auto;
-    justify-content: center;
+  display: flex;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-left: auto;
+  justify-content: center;
 }
-
 
 h1 {
-    text-align: center;
-    color: #333;
+  text-align: center;
+  color: #333;
 }
 p {
-    text-align: center;
-    color: #666;
+  text-align: center;
+  color: #666;
 }
 .logout {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 .logout a {
-    color: #007bff;
-    text-decoration: none;
+  color: #007bff;
+  text-decoration: none;
 }
 
 /* Reset des marges et des rembourrages */
-body, h1, h2, h3, h4, h5, h6, p, table {
-    margin: 0;
-    padding: 0;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+table {
+  margin: 0;
+  padding: 0;
 }
 
 /* Style de la table */
 .table {
-    width: 50%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    margin: auto;
+  width: 50%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin: auto;
 }
 
 /* Style de l'en-tête de la table */
 .table th {
-    background-color: #f2f2f2;
-    color: #333;
-    padding: 10px;
-    border: 1px solid #ddd;
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 10px;
+  border: 1px solid #ddd;
 }
 
 /* Style des cellules de la table */
 .table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align :center;
-    background-color: floralwhite;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  background-color: floralwhite;
 }
 
 /* Style des lignes impaires de la table 
@@ -86,37 +93,38 @@ body, h1, h2, h3, h4, h5, h6, p, table {
 }
 */
 /* Style des liens pour les actions */
-.modif, .supp {
-    text-decoration: none;
-    color: #333;
+.modif,
+.supp {
+  text-decoration: none;
+  color: #333;
 }
 
 /* Style des images dans les liens */
-.modif img, .supp img {
-    vertical-align: middle;
-    margin-right: 5px;
+.modif img,
+.supp img {
+  vertical-align: middle;
+  margin-right: 5px;
 }
 
 /* Style de l'icône de la corbeille */
 .supp i {
-    font-size: 18px;
-    vertical-align: middle;
-    color: #ff0000;
-    margin-right: 5px;
+  font-size: 18px;
+  vertical-align: middle;
+  color: #ff0000;
+  margin-right: 5px;
 }
 
 .create-button {
-    display: inline-block;
-    background-color: #3aac0d;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 80px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    margin: auto; /* Ajout de cette ligne */
+  display: inline-block;
+  background-color: #3aac0d;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 80px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin: auto; /* Ajout de cette ligne */
 }
 
-
 .create-button:hover {
-    background-color: #3aac0d;
+  background-color: #3aac0d;
 }

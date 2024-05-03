@@ -94,48 +94,59 @@ $conn = null;
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier un joueur</title>
     <link rel="stylesheet" href="assets/crud.css">
 </head>
+
 <body>
 
-<div class="login-container">
-    <h1>Modifier un joueur</h1>
-    <form action="update.php?id=<?php echo htmlspecialchars($id); ?>" method="POST" enctype="multipart/form-data">
-        <div class="input-group">
-            <input type="text" id="firstname" name="firstname" placeholder="Enter player first name" value="<?php echo htmlspecialchars($user['firstname']); ?>"><br>
-        </div>
-        <div class="input-group">
-            <input type="text" id="lastname" name="lastname" placeholder="Enter player last name" value="<?php echo htmlspecialchars($user['lastname']); ?>"><br>
-        </div>
-        <div class="input-group">
-            <input type="text" id="pseudo" name="pseudo" placeholder="Enter player pseudo" value="<?php echo htmlspecialchars($user['pseudo']); ?>"><br>
-        </div>
-        <div class="input-group">
-            <input type="date" id="dob" name="dob" placeholder="Enter player date of birth" value="<?php echo htmlspecialchars($user['dob']); ?>"><br>
-        </div>
-        <div class="input-group">
-            <input type="text" id="country" name="country" placeholder="Enter player country" value="<?php echo htmlspecialchars($user['country']); ?>"><br>
-        </div>
-        <div class="input-group">
-            <input type="text" id="game" name="game" placeholder="Enter player game" value="<?php echo htmlspecialchars($user['game']); ?>"><br>
-        </div>
-        <div class="input-group">
-            <input type="text" id="team" name="team" placeholder="Enter player team" value="<?php echo htmlspecialchars($user['team']); ?>"><br>
-        </div>
-        <div class="input-group">
-            <textarea id="text" name="text" placeholder="Enter player description"><?php echo htmlspecialchars($user['text']); ?></textarea><br>
-        </div>
-        <div class="input-group">
+    <div class="login-container">
+        <h1>Modifier un joueur</h1>
+        <form action="update.php?id=<?php echo htmlspecialchars($id); ?>" method="POST" enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="text" id="firstname" name="firstname" placeholder="Enter player first name"
+                    value="<?php echo htmlspecialchars($user['firstname']); ?>"><br>
+            </div>
+            <div class="input-group">
+                <input type="text" id="lastname" name="lastname" placeholder="Enter player last name"
+                    value="<?php echo htmlspecialchars($user['lastname']); ?>"><br>
+            </div>
+            <div class="input-group">
+                <input type="text" id="pseudo" name="pseudo" placeholder="Enter player pseudo"
+                    value="<?php echo htmlspecialchars($user['pseudo']); ?>"><br>
+            </div>
+            <div class="input-group">
+                <input type="date" id="dob" name="dob" placeholder="Enter player date of birth"
+                    value="<?php echo htmlspecialchars($user['dob']); ?>"><br>
+            </div>
+            <div class="input-group">
+                <input type="text" id="country" name="country" placeholder="Enter player country"
+                    value="<?php echo htmlspecialchars($user['country']); ?>"><br>
+            </div>
+            <div class="input-group">
+                <input type="text" id="game" name="game" placeholder="Enter player game"
+                    value="<?php echo htmlspecialchars($user['game']); ?>"><br>
+            </div>
+            <div class="input-group">
+                <input type="text" id="team" name="team" placeholder="Enter player team"
+                    value="<?php echo htmlspecialchars($user['team']); ?>"><br>
+            </div>
+            <div class="input-group">
+                <textarea id="text" name="text"
+                    placeholder="Enter player description"><?php echo htmlspecialchars($user['text']); ?></textarea><br>
+            </div>
+            <div class="input-group">
                 <input type="file" id="file" name="file" accept="image/png, image/jpeg">
             </div>
-        <button type="submit">Update player</button>
-        <p>Return to index <a href="welcome.php">Welcome</a></p>
-    </form>
-</div>
+            <button type="submit">Update player</button>
+            <p>Return to index <a href="welcome.php">Welcome</a></p>
+        </form>
+    </div>
 
 </body>
+
 </html>
