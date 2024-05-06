@@ -34,14 +34,13 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
         <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
         <p>Thank you for logging in.</p>
         <button><a href="includes/logout.php">Logout</a></button>
+        <div>
+            <a class="create-button" href="create.php">Create a new player</a>
+        </div>
     </div>
 
 
     <table class="table">
-        <div>
-            <a class="create-button" href="create.php">Create</a>
-        </div>
-
         <thead>
             <tr>
                 <th>Pseudo</th>

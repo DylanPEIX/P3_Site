@@ -29,14 +29,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <title>Player details</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/style.css">
-    <style>
-        body {
-            background-image: url('assets/bg/bg-detail.jpg');
-        }
-    </style>
 </head>
 
-<body>
+<body class="detail">
 
     <!-- Barre de navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

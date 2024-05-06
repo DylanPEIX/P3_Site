@@ -18,7 +18,7 @@ $result = $query->fetch();
 $allplayers = (int) $result['players'];
 
 // On détermine le nombre de joueurs par page
-$parPage = 8;
+$parPage = 4;
 
 // On calcule le nombre de pages total
 $pages = ceil($allplayers / $parPage);
@@ -47,18 +47,13 @@ include ('includes/close.php');
     <title>My playerbase</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/style.css" />
-    <style>
-        body {
-            background-image: url('assets/bg/bg.png');
-        }
-    </style>
 </head>
 
-<body>
+<body class="main">
 
     <!-- Barre de navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 100px">
+        <div class=" container">
             <a class="navbar-brand" href="index.php">Playerbase</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,13 +70,12 @@ include ('includes/close.php');
     </nav>
 
     <div class="container text-center">
-        <h1 class="my-3">Playerbase</h1>
         <div class="row row-cols-5">
             <?php foreach ($players as $player):
                 $id = $player['id'];
                 ?>
                 <div class="col-md-3 mb-4">
-                    <div class="card" style="width: 13rem;">
+                    <div class="card" style="width: 12rem;">
                         <img src='assets/img/img_<?php echo $id; ?>.png' class="card-img-top rounded-circle" width="150"
                             height="150" alt="Player Image">
                         <div class="card-body">
