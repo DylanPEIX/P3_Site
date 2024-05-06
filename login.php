@@ -3,7 +3,7 @@ session_start(); // Start session
 
 if (!empty($_POST)) {
     // Connect to the database
-    include ('includes/db.php');
+    include ('includes/connect.php');
     $conn = connect();
 
     // Retrieve form data

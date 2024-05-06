@@ -1,6 +1,6 @@
 <?php
 if (!empty($_POST)) {
-    include ('includes/db.php');
+    include ('includes/connect.php');
     echo "connection";
     $conn = connect();
     $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
