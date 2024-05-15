@@ -9,6 +9,6 @@ $_SESSION = array();
 session_destroy();
 
 // Rediriger l'utilisateur vers la page de connexion
-header("location: http://localhost/P3_Site/login.php");
+header("location: http://localhost/P3_Site/stacks_docker/sites/login.php");
 exit();
 ?>
